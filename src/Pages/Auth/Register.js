@@ -18,7 +18,7 @@ const Register = ({ history }) => {
         event.preventDefault();
         console.log('env=', process.env.REACT_APP_REGISTER_REDIRECT_URL);
         const config = {
-            url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
+            url: `${process.env.REACT_APP_REGISTER_REDIRECT_URL}`,
             handleCodeInApp: true
         }
         await auth.sendSignInLinkToEmail(email, config);
