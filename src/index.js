@@ -1,13 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
+import 'antd/dist/antd.css';
+import 'mdbreact/dist/css/mdb.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { Provider } from 'react-redux';
+import rootReducer from './Redux/Reducers/rootReducer';
+
+// Redux store
+const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  // </React.StrictMode>
   document.getElementById('root')
 );
 
